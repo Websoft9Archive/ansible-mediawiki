@@ -36,18 +36,9 @@
 
 本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
 
-建议使用root登录，若通过普通用户登录需要增加变量：
-
-~~~
-//假设普通用户名称为websoft9
-admin_username: websoft9
-~~~
-
-
-
 ## 使用指南
 
-文档链接：http://en.websoft9.com/docs/mediawiki
+文档链接：http://support.websoft9.com/docs/mediawiki
 
 
 ## 用户体验改进
