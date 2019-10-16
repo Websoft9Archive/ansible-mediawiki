@@ -49,21 +49,8 @@ Manual backup for application is based on the **Exporting source code and databa
 ```
 The general manual backup operation steps are as follows:
 
-1. Compress and download the entire */data/wwwroot/moodle* directory by SFTP 
-1. Compress and download the entire */data/wwwroot/moodledata* directory by SFTP 
+1. Compress and download the entire */data/wwwroot/mediawiki* directory by SFTP 
 2. Export MediaWiki's database by [phpMyAdmin](/zh/admin-mysql.md)
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/phpmyadmin/phpmyadmin-export-websoft9.png)
 3. Put the source code file, data file and database file in the same folder, named according to the date
 4. Backup completed
-
-### MediaWiki courses backup
-
-Courses are very import resource of MediaWiki, you can set an automatic backups for MediaWiki Courses
-
-1. Log in MediaWiki console as administrator
-2. Open **Site administrator** > **Courses** > **Backups** to set automatic backup
-  ![MediaWiki course backups](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-coursebk-websoft9.png)
-3. Set it by yourself
-4. Open **Site administrator** > **Reports** > **Backups** to view the backup result
-  ![MediaWiki view backup result](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-coursebkrp-websoft9.png)
-

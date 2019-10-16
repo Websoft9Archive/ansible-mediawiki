@@ -17,63 +17,60 @@ MediaWiki domain name binding steps:
 
      <VirtualHost *:80>
      ServerName www.mydomain.com # modify it for you
-     DocumentRoot "/data/wwwroot/moodle"
+     DocumentRoot "/data/wwwroot/mediawiki"
      ...
      
    #### MediaWiki (LEMP) bind domain #### 
 
      server {
       listen 80;
-      server_name    moodle.example.com; # modify it for you
+      server_name    mediawiki.example.com; # modify it for you
      ...
 
    ```
 3. Save it and restart [Web Service](/admin-services.md#apache)
 
 
-## Register your MediaWiki site
+## MediaWiki Configuration
 
-Once completed your MediaWiki installation wizard, suggest you to register MediaWiki's website account. This account can help you to get upgrade message, get share course of MediaWiki.NET, install plugins online
+Modify the `LocalSettings.php` to set MediaWiki, and you should know settings is from `DefaultSettings.php`
 
-1. Log in MediaWiki console as administrator
-2. Open **Site administrator** > **Registation**
-   ![MediaWiki register](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-registermd-websoft9.png)
-3. When you completed it, MediaWiki.net may stay in touch and provide you with important things for your MediaWiki site
+Refer to MediaWiki official docs: [Configuration settings](https://www.mediawiki.org/wiki/Manual:Configuration_settings/en)
 
-## MediaWiki languages
+## MediaWiki Extensions
 
-1. Log in MediaWiki console as administrator
-2. Open **Site administrator** > **Language**
-   ![MediaWiki language setting](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-languageset-websoft9.png)
-3. Set it by yourself
-   * Language settings: choose your language online
-   * Language customisation: edit your language files online
-   * Language packs: upload your language packs
+Refer to MediaWiki official docs: [Manual:Extensions](https://www.mediawiki.org/wiki/Manual:Extensions/en)
 
-## MediaWiki mobile
+## MediaWiki Create&Edit page
 
-1. Log in MediaWiki console as administrator
-2. Open **Site administrator** > **Mobile app** > **Mobile settings**
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-app-1-websoft9.png)
-3. Check **Enable web services for mobile devices** is selected
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-app-2-websoft9.png)
-4. Save settings
-5. Install [MediaWiki APPS](https://download.moodle.org/mobile/) in your phone
-6. Open the MediaWiki app in your phone, configure the MediaWiki's URL to your app and start to use it
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-mobile-websoft9.png)
+Refer to MediaWiki official docs: [Help:Starting_a_new_page](https://www.mediawiki.org/wiki/Help:Starting_a_new_page/en)
 
-## MediaWiki plugins
+## MediaWiki VisualEditor
 
-MediaWiki is very scalable platform, most of function were as plugins. MediaWiki have installed 400+ plugins by default and you can install plugins from [Plugins Marketplace](https://moodle.org/plugins/) to extend your functions
+Refer to MediaWiki official docs: [Help:Starting_a_new_page](https://www.mediawiki.org/wiki/Help:VisualEditor/User_guide/en)
 
-1. Log in MediaWiki console as administrator
-2. Open **Site administrator** > **Plugins** 
-   ![moodle plugins](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-plugins-websoft9.png)
-3. Click **Plugins Overview** to list all plugins installed, you can disable and uninstall it also
-4. Visit [Plugins Marketplace](https://moodle.org/plugins/) to search more plugins
-5. Start to install plugins in the MediaWiki's console
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-intallplugins001-websoft9.png)
-6. Upload plugin online
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/moodle-intallplugins-uploadfile-websoft9.png) 
+## MediaWiki change interface
 
-> More details about manage plugins please refer to official docs [MediaWiki Plugins](https://docs.moodle.org/37/en/Installing_plugins)
+Changing interface includes: modify logo, set navigation, modify css and so on
+
+Refer to MediaWiki official docs: [Help:FAQ:Changing Interface](https://www.mediawiki.org/wiki/Manual:FAQ#Changing_the_interface)
+
+## MediaWiki Enable uploading files
+
+You can't upload files from MediaWiki by default, you need to enable it first  
+
+Refer to MediaWiki official docs: [Help:FAQ:Enabel Uploading](https://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_enable_uploading?)
+
+## MediaWiki Languages
+
+Refer to MediaWiki official docs: [Help:FAQ:Language](https://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_change_the_interface_language?)
+
+## MediaWiki set MainPage
+
+Refer to MediaWiki official docs: [Help:FAQ:Chage Main Page](https://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_change_which_page_is_the_main_page?)
+
+## MediaWiki using Composer
+
+Websoft9's MediaWiki have installed the Composer by default  
+
+Refer to MediaWiki official docs: [Help:Composer](https://www.mediawiki.org/wiki/Composer/en) 

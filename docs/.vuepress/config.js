@@ -32,7 +32,7 @@ themeConfig: {
   sidebar: 'auto', // 默认值：false
 
   //Github 
-  repo: 'Websoft9/ansible-moodle',
+  repo: 'Websoft9/ansible-mediawiki',
   editLinks: true,
   docsDir: 'docs',
   docsBranch: 'master',

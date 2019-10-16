@@ -27,6 +27,15 @@
     'password' => "#wwBJ8"       
     );
    ```
+4. 找到变量 $ wgEnableEmail，设置其值为 true
+   ```
+   $ wgEnableEmail = true
+   ```
+5. 查找以下变量，将其值设置为发件邮箱
+   ```
+   $wgEmergencyContact = "websoft9@163.com";
+   $wgPasswordSender = "websoft9@163.com";
+   ```
 4. 保存设置
 5. 重启 [PHP-FPM 服务](/zh/admin-services.html#php-fpm)后生效
 6. 测试是否可以发邮件

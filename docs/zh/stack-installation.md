@@ -12,21 +12,21 @@
 
 1. 使用本地电脑的 Chrome 或 Firefox 浏览器访问网址：*http://域名* 或 *http://Internet IP*, 就进入引导首页
 2. 根据系统提示，点击“…Installation”进入安装界面，选择语言 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install001-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install001-websoft9.png)
 3. 填写你的数据库配置信息([不知道账号密码？](/zh/stack-accounts.html#mysql))，保存并继续; 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install002-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install002-websoft9.png)
 4. 选择数据库引擎和字符集设置，字符集建议选用UFT-8 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install003-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install003-websoft9.png)
 5. 设置后台账号信息，请务必设置好并牢记之。进入下一步 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install004-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install004-websoft9.png)
 6. 跟随安装提示直到完成，过程中尽量选择默认设置，勾选安装所有模块
 7. 配置完成后会生成 LocalSettings.php 文件，根据提示下载。 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install005-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-install005-websoft9.png)
 8. 将 `LocalSettings.php` 文件上传到服务器 MediaWiki 根目录
 9. 系统完成最后一步安装，建议进入MediaWiki后台（以管理身份登录即进入后台），体验完整功能 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-homepage-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mediawiki/mediawiki-homepage-websoft9.png)
 
-> 需要了解更多MediaWiki的使用，请参考官方文档：[MediaWiki Documentation](https://www.mediawiki.org/wiki/Sysadmin_hub)
+> 需要了解更多MediaWiki的使用，请参考官方文档：[MediaWiki FAQ](https://www.mediawiki.org/wiki/Sysadmin_hub/zh)
 
 ## 常见问题
 
@@ -41,3 +41,9 @@
 #### 是否可以采用云厂商提供的 RDS 来存储 MediaWiki 数据？
 
 可以
+
+#### 是否可以重装 MediaWiki
+
+本地浏览器访问： *http://服务公网IP/mw-config/index.php?page=Restart&lastPage=Install* ，开始重装
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/Mediawiki-reinstall-websoft9.png)

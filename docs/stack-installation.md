@@ -10,39 +10,49 @@ If you have completed the MediaWiki deployment on Cloud Platform, the following 
 
 ## MediaWiki Installation Wizard
 
-1. Using local Chrome or Firefox to visit the URL *https://domain name* or *https://Internet IP*, enter to MediaWiki installation page
+1. Using local Chrome or Firefox to visit the URL *https://domain* or *https://Internet IP*, start to install    
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw01.png)
 
-2. Choose a language, then go to next step
-   ![MediaWiki-install-language](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md01.png)
+2. Choose a language to continue
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw02.png)
 
-3. Set the MediaWiki source code and data directory
-   ![MediaWiki set directory](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md02.png)
+3. Acccept the license and Continue
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw03.png)
 
-4. Choose the database type
-   ![MediaWiki Choose database](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md03.png)
+4. Fill in database configuration
+   > It's  easy to make mistakes on this step. If have mistakes, you can [Re-install Mediawiki](/stack-installation.html#can-i-re-install-mediawiki)
 
-5. Fill in your database connection information ([Don't know password?](/stack-accounts.html#mysql))
-   ![MediaWiki set database connection](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md04.png)
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mediawiki-setdbconnstr-websoft9.png)
 
-6. Confirm the Copyright
-   ![MediaWiki Confirm the Copyright](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md05.png)
+   - Database name: mediawiki (MySQL on this Image has a database instance name mediwiki)
+   - Database username: root
+   - Database password: [Don't know password?](/stack-accounts.html#mysql)
+   
+   If you don't want to use the mediawiki as Database name,please create your database first. If you don't want to use the root as Database username,please create your user first
+5. Set database character,Click "Continue";  
+  ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw05.png)
 
-7. Installing
-   ![MediaWiki start install](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md06.png)
-   ![MediaWiki start install](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md07.png)
+6. Set the site name, administrator account, password and mail,Click "Continue";
+  ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw06.png)
 
-8. Set administrator account
-   ![MediaWiki set administrator account](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md08.png)
+7. Click "Continue";  
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw07.png)
 
-9. Set site name, short name, front page summary...
-   ![MediaWiki set site information](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md09.png)
+8. Click "Continue";  
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw08.png)
 
-10. Installed successfully.
-   ![MediaWiki installation successfully](https://libs.websoft9.com/Websoft9/DocsPicture/en/moodle/md10.png)
+9. Click "Continue";  
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw09.png)
 
-11. [Register a MediaWiki account](/solution-more.html#moodle-register) to connect MediaWiki official website for more extension
+10. Download the file and upload it to the server directory:/data/wwwroot/mediawiki
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw10.png)
 
-> More useful MediaWiki guide, please refer to [MediaWiki Documentation](https://docs.moodle.org)
+11. OK, it has been installed successfully.
+
+12. Use http://domain  to go to your index page.
+   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/mw11.png)
+
+> More useful MediaWiki guide, please refer to [MediaWiki Sysadmin Docs](https://www.mediawiki.org/wiki/Sysadmin_hub/zh)
 
 ## Q&A
 
@@ -57,3 +67,9 @@ MySQL
 #### Can I use Cloud database for MediaWiki?
 
 Yes
+
+#### Can I re-install MediaWiki?
+
+Visit URL *http://Internet IP/mw-config/index.php?page=Restart&lastPage=Install*  to start reinstall
+
+![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mediawiki/Mediawiki-reinstall-websoft9.png)

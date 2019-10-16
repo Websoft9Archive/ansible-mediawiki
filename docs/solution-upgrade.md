@@ -26,6 +26,4 @@ apt update && apt upgrade -y
 
 ## MediaWiki Upgrade
 
-MediaWiki provided multiple upgrade methonds, inlucdes: automatic upgrade, upload source code for upgrading, using CLI for upgrading
-
-More detail please refer to MediaWiki official docs [MediaWiki Upgrading](https://docs.moodle.org/37/en/Upgrading)
+More detail please refer to MediaWiki official docs [MediaWiki Upgrading](https://www.mediawiki.org/wiki/Manual:Upgrading)

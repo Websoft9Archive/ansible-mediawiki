@@ -6,8 +6,8 @@ The MediaWiki deployment package contains a sequence software (referred to as "c
 
 ### MediaWiki
 
-MediaWiki installation directory: */data/wwwroot/moodle*  
-MediaWiki configuration file: */data/wwwroot/moodle/config.php*  
+MediaWiki installation directory: */data/wwwroot/mediawiki*  
+MediaWiki configuration file: */data/wwwroot/mediawiki/LocalSettings.php*  
 
 ### PHP
 

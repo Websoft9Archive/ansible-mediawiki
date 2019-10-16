@@ -6,7 +6,7 @@
 
 #### MediaWiki 能上传多媒体文件吗？
 
-可以
+可以，但需要提前[启用 MediaWiki 文件上传](/zh/solution-more.html#mediawiki-允许文件上传)功能
 
 #### MediaWiki(LAMP)，MediaWiki(LNMP)等商品括号中的 LAMP,LNMP 是什么意思？
 
@@ -22,7 +22,7 @@ LAMP和LNMP代表支持MediaWiki运行所对应的基础环境，具体参考[�
 
 #### MediaWiki数据库连接配置信息在哪里？
 
-数据库配置信息在MediaWiki安装目录下的 *config.php* 中，[查阅安装目录路径](/zh/stack-components.md#moodle)
+数据库配置信息在MediaWiki安装目录下的 *LocalSettings.php* 中，[查阅安装目录路径](/zh/stack-components.md#mediawiki)
 
 #### 如果没有域名是否可以部署 MediaWiki？
 
@@ -40,9 +40,9 @@ LAMP和LNMP代表支持MediaWiki运行所对应的基础环境，具体参考[�
 
 连接服务器，编辑 phpMyAdmin 配置文件，将其中的 Require all granted 更改为 Require ip 192.160.1.0，然后重启 Apache 服务
 
-#### 是否可以修改MediaWiki的源码路径？
+#### 是否可以修改 MediaWiki 的源码路径？
 
-可以，通过修改 [虚拟主机配置文件](/zh/stack-components.md#moodle)中相关参数
+可以，通过修改 [虚拟主机配置文件](/zh/stack-components.md#mediawiki)中相关参数
 
 #### 如何修改上传的文件权限?
 

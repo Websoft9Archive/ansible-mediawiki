@@ -2,11 +2,7 @@
 
 We collect the most common troubleshooting of using MediaWiki for your reference:
 
-## MediaWiki related
-
-Refer to [MediaWiki official error docs](https://docs.moodle.org/37/en/Category:Error)
-
-## Database related
+> Many troubleshooting is closely related to the Server, if you can confirm troubleshooting is related to Cloud Platform, please refer to [Cloud Platform Documentation](https://support.websoft9.com/docs/faq/tech-instance.html)
 
 #### Database service could not be started?
 
@@ -25,33 +21,26 @@ df -lh
 free -lh
 ```
 
-#### Repair a corrupted MediaWiki database
-
-The problem can be repaired using the mysqlcheck command
-
-```
-#mysqlcheck -u moodleuser -p --auto-repair moodle
-Enter password:
-moodle.adodb_logsql                      OK
-moodle.mdl_assignment                    OK
-moodle.mdl_assignment_submissions        OK
-...
-moodle.mdl_log
-error    : Table './moodle/mdl_log' is marked as crashed and should be repaired
-...
-moodle.mdl_sessions2
-error    : Table './moodle/mdl_sessions2' is marked as crashed and should be repaired
-
-Repairing tables
-moodle_18_latest.mdl_log                           OK
-moodle_18_latest.mdl_sessions2                     OK
-```
-
 #### phpMyAdmin page access blank?
 
 Please try another browser, such as chrome or firefox. If the phpMyAdmin can be opened normally before, and now appears to be incomplete or blank, it is recommended to clean up the browser cache, cookies and other information
 
-## Instance related
+#### PhpMyAdmin Timeout Errors
 
-Instance troubleshooting is closely related to the Instance provider that is Cloud Platform   
-Please refer to [Cloud Platform Documentation](https://support.websoft9.com/docs/faq/tech-instance.html)
+If you try to import a zipped database, you might see a timeout error because phpMyAdmin takes too long to execute the script.To fix this:
+
+- Set the max_execution_time of `php.ini` to larger value
+- Try to import the file again.
+
+Remember to change the ExecTimeLimit setting back to its original value once the import process ends.
+
+#### Website pictures loading very slowly?
+
+Please make sure that your brandwith of Server is more than 5M
+
+#### Apache httpd service restart error
+Please make sure the vhost.conf is correct for you, and you can track and analyze log files from */var/log/httpd*
+
+
+#### Redirects Error
+Check your `.htaccess` file in your application root directory, make sure there not any cycle redirects settings

@@ -24,6 +24,4 @@ apt update && apt upgrade -y
 
 ## MediaWiki升级
 
-MediaWiki 官方提供了多种升级方式，包括自动升级、上传代码升级和命令升级等方式
-
-升级请参考官方文档 [MediaWiki Upgrading](https://docs.moodle.org/37/en/Upgrading)
+升级请参考官方文档 [MediaWiki Upgrading](https://www.mediawiki.org/wiki/Manual:Upgrading/zh)

@@ -19,7 +19,7 @@ You can use the RDS for MediaWiki if you need,and just need to modify the databa
 
 #### Where is the database connection configuration of MediaWiki?
 
-Database configuration information in *config.php* in the [MediaWiki installation directory](/stack-components.md#moodle)
+Database configuration information in *LocalSettings.php* in the [MediaWiki installation directory](/stack-components.md#mediawiki)
 
 #### If there is no domain name, can I deploy MediaWiki?
 
@@ -51,7 +51,7 @@ No, you don't need to change them because LAMP/LNMP was set to changed automatic
 
 #### How to modify the path of MediaWiki?
 
-Example application's path is: */data/wwwroot/moodle*, you can modify it by [vhost configuration file](/stack-components.md#apache)
+Example application's path is: */data/wwwroot/mediawiki*, you can modify it by [vhost configuration file](/stack-components.md#apache)
 
 #### How to delete 9Panel?
 
@@ -62,9 +62,9 @@ Please delete all files in 9Panel */data/apps/9panel* and keep an empty 9Panel f
 Change owner(group) or permissions like below:
 
 ```shell
-#for moodle(lamp)
+#for MediaWiki(lamp)
 chown -R apache.apache /data/wwwroot
-#for moodle(lemp)
+#for MediaWiki(lemp)
 chown -R nginx.nginx /data/wwwroot
 
 

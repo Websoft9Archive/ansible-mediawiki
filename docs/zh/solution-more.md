@@ -17,14 +17,14 @@ MediaWiki 域名绑定操作步骤：
 
      <VirtualHost *:80>
      ServerName  www.mydomain.com # 修改成您的实际域名
-     DocumentRoot "/data/wwwroot/moodle"
+     DocumentRoot "/data/wwwroot/mediawiki"
      ...
      
    #### MediaWiki(LNMP) bind domain #### 
 
      server {
       listen 80;
-      server_name moodle.example.com; # 修改成您的实际域名
+      server_name mediawiki.example.com; # 修改成您的实际域名
      ...
 
    ```
@@ -32,39 +32,44 @@ MediaWiki 域名绑定操作步骤：
 
 ## MediaWiki 配置设置
 
+主要通过修改 LocalSettings.php 文件来对 MediaWiki 进行设置，而 LocalSettings.php 文件
+
 参考官方文档: [Configuration settings](https://www.mediawiki.org/wiki/Manual:Configuration_settings/zh)
 
+## MediaWiki 安装扩展
+
+参考官方文档：[Manual:Extensions](https://www.mediawiki.org/wiki/Manual:Extensions/zh)
+
+## MediaWiki 创建或编辑页面
+
+参考官方文档：[Help:Starting_a_new_page](https://www.mediawiki.org/wiki/Help:Starting_a_new_page/zh)
+
+## MediaWiki 可视化编辑器
+
+参考官方文档：[Help:Starting_a_new_page](https://www.mediawiki.org/wiki/Help:VisualEditor/User_guide/zh)
+
+## MediaWiki 定制界面
+
+定制界面包括：修改 Logo, 设置导航栏，修改 CSS 等  
+
+参考官方文档：[Help:FAQ:定制界面](https://www.mediawiki.org/wiki/Manual:FAQ/zh#定制界面)
+
+## MediaWiki 允许文件上传
+
+Mediawiki 默认并不可以上传文件，需要启动文件上传功能  
+
+参考官方文档：[Help:FAQ:启用文件上传](https://www.mediawiki.org/wiki/Manual:FAQ/zh#如何启用文件上传?)
 
 ## MediaWiki 语言设置
 
-1. 以管理员身份登录 MediaWiki 后台
-2. 依次打开：【网站管理】>【语言】
-   ![MediaWiki 语言设置](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-languageset-websoft9.png)
-3. 根据实际情况进行语言设置
-   * 语言设置：即在线切换语言
-   * 定制语言：即在线编辑语言翻译内容
-   * 语言包： 即上传系统默认没有内置的语言
+参考官方文档：[Help:FAQ:语言设置](https://www.mediawiki.org/wiki/Manual:FAQ/zh#我如何更改界面语言？)
 
-## MediaWiki 客户端
+## MediaWiki 设置主页
 
-1. 以管理身份登录 MediaWiki 后台
-2. 依次打开：【网站管理】>【移动应用程序】>【移动设备设置】
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-app-1-websoft9.jpg)
-3. 将【为移动设备启用网络服务】设为 **启用** 状态；
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-app-2-websoft9.jpg)
-4. 保存设置；
-5. 安装 [MediaWiki 手机客户端](https://download.moodle.org/mobile/)
-6. 打开后在地址栏输入 MediaWiki 的访问地址，就可以开始使用移动端
-   ![moodle-apps](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-mobile-websoft9.png)
+参考官方文档：[Help:FAQ:设置主页](https://www.mediawiki.org/wiki/Manual:FAQ/zh#如何指定首页?)
 
-## MediaWiki 插件
+## MediaWiki 使用 Composer
 
-MediaWiki 是一个非常灵活的平台，大部分核心功能以插件的形式存在，系统默认安装了400多个插件。同时，官方提供了[插件市场](https://moodle.org/plugins/)供用户作用更多功能扩展。
+本预装包默认已经安装 Composer，详细使用  
 
-1. 以管理员身份登录 MediaWiki 后台
-2. 依次打开：【网站管理】>【插件】
-   ![moodle 插件](https://libs.websoft9.com/Websoft9/DocsPicture/zh/moodle/moodle-plugins-websoft9.png)
-3. 点击【插件概括】，列出默认安装的插件，可以进行停用、卸载等操作
-4. 通过[插件市场](https://moodle.org/plugins/)寻找所需的插件，然后安装它们
-
-> 更多插件管理查看官方文档 [MediaWiki Plugins](https://docs.moodle.org/37/en/Installing_plugins)
+参考官方文档：[Help:Composer](https://www.mediawiki.org/wiki/Composer/zh)

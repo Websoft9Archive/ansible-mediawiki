@@ -7,7 +7,7 @@
 | 部署包名称 | 说明| 参考项 |
 | --- | --- | --- |
 | MediaWiki(LAMP) | Apache+MySQL+PHP on Linux | [《LAMP管理员手册》](https://support.websoft9.com/docs/lamp/zh) |
-| MediaWiki(LEMP)| Nginx+MySQL+PHP on Linux |[《LNMP管理员手册》](https://support.websoft9.com/docs/lnmp/zh)|
+| MediaWiki(LNMP)| Nginx+MySQL+PHP on Linux |[《LNMP管理员手册》](https://support.websoft9.com/docs/lnmp/zh)|
 
 ## 环境是什么？
 

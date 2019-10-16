@@ -22,18 +22,18 @@ LAMP means that **Apache** for Web Server
    ``` text
    #-----HTTPS template start------------
    <VirtualHost *:443>
-    ServerName  moodle.yourdomain.com
-    DocumentRoot "/data/wwwroot/moodle"
-    #ErrorLog "logs/moodle.yourdomain.com-error_log"
-    #CustomLog "logs/moodle.yourdomain.com-access_log" common
-    <Directory "/data/wwwroot/moodle">
+    ServerName  mediawiki.yourdomain.com
+    DocumentRoot "/data/wwwroot/mediawiki"
+    #ErrorLog "logs/mediawiki.yourdomain.com-error_log"
+    #CustomLog "logs/mediawiki.yourdomain.com-access_log" common
+    <Directory "/data/wwwroot/mediawiki">
     Options Indexes FollowSymlinks
     AllowOverride All
     Require all granted
     </Directory>
     SSLEngine on
-    SSLCertificateFile  /data/cert/moodle.yourdomain.com.crt
-    SSLCertificateKeyFile  /data/cert/moodle.yourdomain.com.key
+    SSLCertificateFile  /data/cert/mediawiki.yourdomain.com.crt
+    SSLCertificateKeyFile  /data/cert/mediawiki.yourdomain.com.key
     </VirtualHost>
    #-----HTTPS template end------------
    ```
