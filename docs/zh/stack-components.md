@@ -55,14 +55,14 @@ Redis logs file: */var/log/redis/redis.log*
 
 ## 端口号
 
-系统所用到的端口号，请通过官方文档 [Package defaults](https://docs.gitlab.com/omnibus/package-information/defaults.html) 查阅。在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
+在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
 
 本应用建议开启的端口如下：
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| HTTP | 80 | 通过 HTTP 访问 Odoo | 必须 |
-| HTTPS | 443 | 通过 HTTPS 访问 Odoo | 可选 |
+| HTTP | 80 | 通过 HTTP 访问 MediaWiki | 必须 |
+| HTTPS | 443 | 通过 HTTPS 访问 MediaWiki | 可选 |
 | MySQL | 3306 | 远程连接 MySQL | 可选 |
 
 ## 版本号
