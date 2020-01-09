@@ -1,0 +1,78 @@
+---
+# MediaWiki
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+- name: Create mediawiki directory
+  file:
+    path: /data/wwwroot/mediawiki
+    state: directory
+    owner: apache
+    group: apache
+    mode: 0755
+
+- name: Download MediaWiki
+  git:
+    repo: 'https://github.com/wikimedia/mediawiki.git'
+    dest: /data/wwwroot/mediawiki
+    remote: RHEL1_34
+
+- name: Get MySQL Password
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
+  register: mysql_password
+
+- name: Create  databases
+  mysql_db:
+    login_user: root
+    login_password: '{{mysql_password.stdout}}'
+    name: mediawiki
+    state: present
+
+- name: rename MediaWiki dir
+  shell: mv /data/wwwroot/mediawiki-* /data/wwwroot/mediawiki
+
+- name: Install PHP-Apcu
+  yum:
+    name:  php-pecl-apcu
+    state: latest
+    
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
+
+- name: Enable 9panel I
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["Mediawiki"];'
+  
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
+- name: System Upgrade
+  yum: name=* state=latest
+
+- name: Databases Random Password
+  copy: 
+    src: init.sh
+    dest: /root/
+    mode: 0750
+
+- name: Setting Startup
+  lineinfile:
+    path: /etc/rc.d/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0750
