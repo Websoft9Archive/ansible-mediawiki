@@ -35,9 +35,6 @@
     name: mediawiki
     state: present
 
-- name: rename MediaWiki dir
-  shell: mv /data/wwwroot/mediawiki-* /data/wwwroot/mediawiki
-
 - name: Install PHP-Apcu
   yum:
     name:  php-pecl-apcu

@@ -19,16 +19,16 @@
     - vars/main.yml
 
   roles:
-    - {role: role_common, tags: "role_common"}  
-    - {role: role_cloud, tags: "role_cloud"}  
-    - {role: role_apache, tags: "role_apache"}
-    - {role: role_mysql, tags: "role_mysql"}
-    - {role: role_php-fpm , tags: "role_php-fpm"}
-    - {role: role_lamp, tags: "role_lamp"}
-    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
-    - {role: role_9panel, tags: "role_9panel"}
-    - {role: mediawiki, tags: "mediawiki"}
-    - {role: role_init_password, tags: "role_init_password"}
-    - {role: role_inotify_watch, tags: "role_inotify_watch"}
-    - {role: role_end, tags: 'role_end'}
+    - role: role_common
+    - role: role_cloud
+    - role: role_apache
+    - role: role_mysql
+    - role: role_php-fpm
+    - role: role_inotify_watch
+    - role: role_lamp
+    - role: role_init_password
+    - role: role_phpmyadmin
+    - role: role_9panel
+    - role: mediawiki
+    - role: role_end
     

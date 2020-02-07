@@ -1,94 +1,59 @@
-# Mediawiki自动化安装与部署
 
-本项目是用Ansible编写的Mediawiki自动安装程序，实现在服务器上一步安装Mediawiki，无需了解复杂的配置过程。本项目是开源项目，通过源码，您可以查看Mediawiki自动安装的每一个步骤。
+# MediaWiki 自动化安装与部署
 
-如果您不熟悉Ansible的使用，您可以直接使用我们在公有云上使用我们提供的Mediawiki镜像。
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 MediaWiki，让原本复杂的安装过程变得没有任何技术门槛。  
 
+本项目是开源项目，采用 LGPL3.0 开源协议。
 
-## 技术要求
+## 配置要求
 
-### 服务器配置要求
+安装本项目，确保符合如下的条件：
 
-最低1核CPU，1G内存
+| 条件       | 详情       | 备注  |
+| ------------ | ------------ | ----- |
+| 操作系统       | CentOS7.x, Ubuntu18.04, Amazon Linux2       |    |
+| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
+| 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
+| 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
 
-### 操作系统要求
+## 组件
 
-* CentOS
-* Ubuntu（暂时不支持）
+包含的核心组件为：LAMP
 
-### 环境要求
+更多请见[参数表](/docs/zh/stack-components.md)
 
-本程序仅适用于Websoft9的PHP相关基础环境，包括：
+## 本项目安装的是 Redis 最新版吗？
 
-* LAMP
-* LNMP（暂时不支持）
+本项目是下载[MediaWiki源码](https://www.mediawiki.org/wiki/Download)安装。
 
-其中最低php7.0,mysql5.5，官方建议采用php7.2,mysql5.6。[点击查看](https://www.mediawiki.org/wiki/Compatibility)官方对环境配置的建议。
-
-## 版本
-
-本自动化安装程序是通过Mediawiki官方源码安装的，故需要实现设置好最新源码的下载地址。
-
-存放下载地址的文件：group_vars/all
-
+我们会定期检查版本准确性，并增加官方最新的stable版本，以保证用户可以顺利安装所需的MediaWiki版本。
 
 ## 安装指南
 
-本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
-
-## 使用指南
-
-文档链接：http://support.websoft9.com/docs/mediawiki
-
-
-## 用户体验改进
-
-### 免数据库配置
-
-1. Mediawiki从1.32开始，已经无法通过安装步骤创建数据库，故需要提前新建数据库
-2. Mediawiki的安装步骤是可以分步骤的，并可以点击“重新开始安装”
-3. Mediawiki可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
-
-
-/mediawiki/includes/installer/MysqlInstaller.php文件中，'_InstallUser' => 'root', 用于修改安装的时候默认的数据库账户名称
-/mediawiki/includes/DefaultSettings.php 包含数据库设置
-
-以上两个文件修改仅用于安装，一旦安装完成，建议复原
-
+以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
 ```
-/************************************************************************//**
- * @name   Database settings
- * @{
- */
-
-/**
- * Database host name or IP address
- */
-$wgDBserver = 'localhost';
-
-/**
- * Database port number (for PostgreSQL and Microsoft SQL Server).
- */
-$wgDBport = 5432;
-
-/**
- * Name of the database
- */
-$wgDBname = 'my_wiki';
-
-/**
- * Database username
- */
-$wgDBuser = 'wikiuser';
-
-/**
- * Database user's password
- */
-$wgDBpassword = '';
-
-/**
- * Database type
- */
-$wgDBtype = 'mysql';
+wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=mediawiki
 ```
+
+脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
+
+**安装中的注意事项：**  
+
+1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
+2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
+
+多种原因导致无法顺利安装，请使用我们在公有云上发布的 [MediaWiki 镜像](https://apps.websoft9.com/mediawiki) 的部署方式
+
+
+## 文档
+
+文档链接：https://support.websoft9.com/docs/mediawiki/zh
+
+## FAQ
+
+- 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
+- 本项目支持在 Ansible Tower 上运行吗？支持
+
+## To do
+
