@@ -12,7 +12,7 @@
 # 核心任务
 
 - name: mediawiki
-  hosts: mediawiki  
+  hosts: all
   become: yes
   become_method: sudo
   vars_files:
