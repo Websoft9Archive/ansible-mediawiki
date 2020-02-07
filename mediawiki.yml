@@ -16,22 +16,19 @@
   become: yes
   become_method: sudo
   vars_files:
-    - variables.yml
-
-  vars:
-    mysql_users: mediawiki
+    - vars/main.yml
 
   roles:
-    - {role: common , tags: "common"}  
-    - {role: cloud , tags: "cloud"}  
-    - {role: apache, tags: "apache"}
-    - {role: mysql , tags: "mysql"}
-    - {role: php-fpm , tags: "php-fpm"}
-    - {role: lamp , tags: "lamp"}
-    - {role: phpmyadmin, tags: "phpmyadmin"}
-    - {role: 9panel, tags: "9panel"}
+    - {role: role_common, tags: "role_common"}  
+    - {role: role_cloud, tags: "role_cloud"}  
+    - {role: role_apache, tags: "role_apache"}
+    - {role: role_mysql, tags: "role_mysql"}
+    - {role: role_php-fpm , tags: "role_php-fpm"}
+    - {role: role_lamp, tags: "role_lamp"}
+    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    - {role: role_9panel, tags: "role_9panel"}
     - {role: mediawiki, tags: "mediawiki"}
-    - {role: initdb}
-    - {role: inotify_watch, tags: "inotify_watch"}
-    - {role: end, tags: 'end'}
+    - {role: role_initdb, tags: "role_initdb"}
+    - {role: role_inotify_watch, tags: "role_inotify_watch"}
+    - {role: role_end, tags: 'role_end'}
     
