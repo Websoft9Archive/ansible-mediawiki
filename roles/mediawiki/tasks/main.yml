@@ -35,7 +35,7 @@
 
 - name: Download MediaWiki
   git:
-    repo: 'https://github.com/wikimedia/mediawiki.git'
+    repo: https://github.com/wikimedia/mediawiki.git
     dest: /data/wwwroot/mediawiki
     remote: "{{mediawiki_version}}"
 
