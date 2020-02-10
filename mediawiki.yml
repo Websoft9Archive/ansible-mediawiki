@@ -33,6 +33,7 @@
     - {role: role_init_password, tags: "role_init_password"}
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
+    - {role: role_redis, tags: "role_redis"}
     - {role: mediawiki, tags: "mediawiki"}
     - {role: role_end, tags: "end"}
     
