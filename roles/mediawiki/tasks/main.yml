@@ -37,7 +37,7 @@
   git:
     repo: https://github.com/wikimedia/mediawiki.git
     dest: /data/wwwroot/mediawiki
-    remote: "{{mediawiki_version}}"
+    version: "{{mediawiki_version}}"
 
 - name: Get MySQL Password
   shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
