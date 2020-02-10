@@ -1,34 +1,38 @@
-# 服务器前置任务(ubuntu使用 Centos项目注释或删掉)
-# - name: main
-#   hosts: all
-#   become: yes
-#   become_method: sudo
-#   gather_facts: False
-#   pre_tasks:
-#     - name: Install Python
-#       raw: sudo apt update && sudo apt-get -y install python
-#       ignore_errors: yes
-  
-# 核心任务
-
-- name: mediawiki
+## 部署
+- name: MediaWiki
   hosts: all
   become: yes
-  become_method: sudo
+  become_method: sudo  
+  vars_prompt:
+    - name: 'webserver_select'
+      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
+      1: Apache\n
+      2: Nginx\n"
+      private: no
+      default: 1
+
+  vars:
+    temp_ver:
+      '1': 'apache'
+      '2': 'nginx'
+    nextcloud_webs: "{{temp_ver[webserver_select]}}" 
+  
   vars_files:
     - vars/main.yml
 
   roles:
-    - role: role_common
-    - role: role_cloud
-    - role: role_apache
-    - role: role_mysql
-    - role: role_php-fpm
-    - role: role_inotify_watch
-    - role: role_lamp
-    - role: role_init_password
-    - role: role_phpmyadmin
-    - role: role_9panel
-    - role: mediawiki
-    - role: role_end
+    - {role: role_common, tags: "role_common"}
+    - {role: role_cloud, tags: "role_cloud"}
+    - {role: role_apache, when: nextcloud_webs == 'apache', tags: "role_apache"}
+    - {role: role_nginx, when: nextcloud_webs == 'nginx', tags: "role_nginx"}
+    - {role: role_mysql, tags: "role_mysql"}
+    - {role: role_php-fpm, tags: "role_php-fpm"}
+    - {role: role_inotify_watch, tags: "role_inotify_watch"}
+    - {role: role_lamp, when: nextcloud_webs == 'apache', tags: "role_lamp"}
+    - {role: role_lnmp, when: nextcloud_webs == 'nginx', tags: "role_lnmp"}
+    - {role: role_init_password, tags: "role_init_password"}
+    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    - {role: role_9panel, tags: "role_9panel"}
+    - {role: mediawiki, tags: "mediawiki"}
+    - {role: role_end, tags: "end"}
     

@@ -1,10 +1,12 @@
 ---
-# MediaWiki
-- name: Get WebServer
-  shell: nginx -v
-  register: nginx_ver
-  ignore_errors: yes
+# 9panel
+- name: Enable 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["Mediawiki"];'
 
+# MediaWiki
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
@@ -22,7 +24,7 @@
   git:
     repo: 'https://github.com/wikimedia/mediawiki.git'
     dest: /data/wwwroot/mediawiki
-    remote: RHEL1_34
+    remote: "{{mediawiki_version}}"
 
 - name: Get MySQL Password
   shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
@@ -39,19 +41,8 @@
   yum:
     name:  php-pecl-apcu
     state: latest
-    
-- name: Copy Apache Config
-  template: src=vhost.conf dest=/etc/httpd/vhost
-
-- name: restart Apache
-  service: name=httpd state=restarted enabled=yes
-
-- name: Enable 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Mediawiki"];'
   
+# 系统通用
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
@@ -61,15 +52,17 @@
 - name: System Upgrade
   yum: name=* state=latest
 
-- name: Databases Random Password
-  copy: 
-    src: init.sh
-    dest: /root/
-    mode: 0750
+# 根据不同的基础环境分别处理
 
-- name: Setting Startup
-  lineinfile:
-    path: /etc/rc.d/rc.local
-    regexp: '/root/init.sh'
-    line: '/root/init.sh'
-    mode: 0750
+- block:
+  - name: change owner&group for Apache
+    shell: chown -R {{mediawiki_owner}}:{{mediawiki_owner}} /data/wwwroot
+
+  - name: Copy Apache or Nginx vhost configuration
+    template: src={{mediawiki_vhost_src}} dest={{mediawiki_vhost_dir}}
+    
+  - name: restart Apache or Nginx
+    service: name={{mediawiki_service}} state=restarted enabled=yes
+
+
+
