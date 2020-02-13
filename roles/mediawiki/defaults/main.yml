@@ -3,3 +3,8 @@ mediawiki_version: 1.34.0
 
 #Web服务器：apache | nginx，通过交互式选择获取
 mediawiki_webs: apache
+
+mediawiki_vhost_dir: /etc/httpd/vhost
+mediawiki_vhost_src: vhost.conf
+mediawiki_service: httpd
+mediawiki_owner: apache

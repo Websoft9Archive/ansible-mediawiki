@@ -29,8 +29,6 @@
   file:
     path: /data/wwwroot/mediawiki
     state: directory
-    owner: apache
-    group: apache
     mode: 0755
 
 - name: Download MediaWiki
@@ -38,17 +36,6 @@
     repo: https://github.com/wikimedia/mediawiki.git
     dest: /data/wwwroot/mediawiki
     version: "{{mediawiki_version}}"
-
-- name: Get MySQL Password
-  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
-  register: mysql_password
-
-- name: Create  databases
-  mysql_db:
-    login_user: root
-    login_password: '{{mysql_password.stdout}}'
-    name: mediawiki
-    state: present
 
 - name: Install PHP-Apcu
   yum:
