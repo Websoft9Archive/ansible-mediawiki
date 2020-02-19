@@ -4,10 +4,10 @@
 
 #Create var for this playbook
 - set_fact:
-    mediawiki_vhost_dir: php_runtime_meta.{{ansible_distribution}}.{{mediawiki_webs}}.vhost_dir
-    mediawiki_vhost_src: php_runtime_meta.{{ansible_distribution}}.{{mediawiki_webs}}.vhost_src
-    mediawiki_service: php_runtime_meta.{{ansible_distribution}}.{{mediawiki_webs}}.service
-    mediawiki_owner: php_runtime_meta.{{ansible_distribution}}.{{mediawiki_webs}}.owner
+    mediawiki_vhost_dir: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].vhost_dir}}"
+    mediawiki_vhost_src: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].vhost_src}}"
+    mediawiki_service: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].service}}"
+    mediawiki_owner: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].owner}}"
 
 - debug:
     msg: runtime {{ mediawiki_vhost_dir }}, {{mediawiki_vhost_src}}, {{mediawiki_service}}, {{mediawiki_owner}}, {{mediawiki_webs}}, {{ansible_distribution}}
@@ -37,9 +37,13 @@
     dest: /data/wwwroot/mediawiki
     version: "{{mediawiki_version}}"
 
-- name: Install PHP-Apcu
+- name: Get PHP Version
+  shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
+  register: phpversion
+
+- name: Install php-pecl-apcu
   yum:
-    name:  php-pecl-apcu
+    name:  php{{phpversion.stdout}}w-pecl-apcu
     state: latest
   
 # 系统通用
