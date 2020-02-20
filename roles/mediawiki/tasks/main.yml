@@ -17,15 +17,8 @@
     msg: runtime {{ mediawiki_vhost_dir }}, {{mediawiki_vhost_src}}, {{mediawiki_service}}, {{mediawiki_owner}}, {{mediawiki_webs}}, {{ansible_distribution}}
 
 # MediaWiki
-- name: Remove example dir
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
-- name: Remove existing dir
-  file:
-    path: /data/wwwroot/{{mediawiki_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*
 
 - name: Create mediawiki directory
   file:
@@ -38,9 +31,6 @@
     repo: "{{mediawiki_download_url}}"
     dest: /data/wwwroot/mediawiki
     version: "{{mediawiki_version}}"
-
-- name: Rename directory name
-  shell: mv /data/wwwroot/* /data/wwwroot/{{mediawiki_name}}
 
 - name: Get PHP Version
   shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
