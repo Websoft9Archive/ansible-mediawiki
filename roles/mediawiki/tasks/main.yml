@@ -39,6 +39,9 @@
     dest: /data/wwwroot/mediawiki
     version: "{{mediawiki_version}}"
 
+- name: Rename directory name
+  shell: mv /data/wwwroot/* /data/wwwroot/{{mediawiki_name}}
+
 - name: Get PHP Version
   shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
   register: phpversion
