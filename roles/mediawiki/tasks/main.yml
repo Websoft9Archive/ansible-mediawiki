@@ -8,17 +8,15 @@
     mediawiki_vhost_src: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].vhost_src}}"
     mediawiki_service: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].service}}"
     mediawiki_owner: "{{php_runtime_meta[ansible_distribution][mediawiki_webs].owner}}"
-    mediawiki_name: "mediawiki"
-    mediawiki_title: "MediaWiki"
-    mediawiki_download_url: "https://github.com/wikimedia/mediawiki.git"
-    mediawiki_version: "1.34.0"
 
 - debug:
     msg: runtime {{ mediawiki_vhost_dir }}, {{mediawiki_vhost_src}}, {{mediawiki_service}}, {{mediawiki_owner}}, {{mediawiki_webs}}, {{ansible_distribution}}
 
 # MediaWiki
 - name: Remove extra dir
-  shell: rm -rf /data/wwwroot/*
+  shell: |
+    rm -rf /data/wwwroot/www.example.com
+    rm -rf /data/wwwroot/{{mediawiki_name}}
 
 - name: Create mediawiki directory
   file:
