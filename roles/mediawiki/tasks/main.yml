@@ -31,7 +31,7 @@
     version: "{{mediawiki_version}}"
 
 - name: Rename dir name
-  shell: if [ ! -d "/data/wwwroot/{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
 
 - name: Get PHP Version
   shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
