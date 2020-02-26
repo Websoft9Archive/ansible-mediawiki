@@ -15,20 +15,13 @@
 # MediaWiki
 - name: Remove extra dir
   shell: |
-    rm -rf /data/wwwroot/www.example.com
-    rm -rf /data/wwwroot/{{mediawiki_name}}
-
-- name: Create mediawiki directory
-  file:
-    path: /data/wwwroot/{{mediawiki_name}}
-    state: directory
-    mode: 0755
+    rm -rf /data/wwwroot/*{{mediawiki_name}}*
 
 - name: Download MediaWiki
-  git:
-    repo: "{{mediawiki_download_url}}"
-    dest: /data/wwwroot/mediawiki
-    version: "{{mediawiki_version}}"
+  unarchive:
+    src: "{{mediawiki_download_url}}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
@@ -44,10 +37,9 @@
   
 # 系统通用
 - name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+  shell: |
+    find /data/wwwroot -type d -exec chmod 750 {} \;
+    find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
 # 根据不同的基础环境分别处理
 

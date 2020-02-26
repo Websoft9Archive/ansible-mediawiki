@@ -7,5 +7,5 @@ mediawiki_service: httpd
 mediawiki_owner: apache
 mediawiki_name: "mediawiki"
 mediawiki_title: "MediaWiki"
-mediawiki_download_url: "https://github.com/wikimedia/mediawiki.git"
-mediawiki_version: "1.34.0"  #版本号需定期维护
+#下载链接需定期维护
+mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.0.tar.gz"
