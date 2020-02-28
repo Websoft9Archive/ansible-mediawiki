@@ -3,13 +3,12 @@
 ## To do
 
 * 添加 Nginx 支持
-* 添加 Ubuntu18.04, Amazon Linux2 支持
+* 添加 Ubuntu18.04 支持
+* my.cnf 模板维护问题
 
 ## Logs
 
 ### Bug Fixes
-* 2020-02-19  修复变量定义问题，优化变量
-
 * 2020-02-19  添加pre_task
 
 * 2020-02-14  数字型变量统一增加双引号

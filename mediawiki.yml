@@ -5,7 +5,7 @@
   become_method: sudo 
   vars_files:
     - vars/main.yml 
-    vars_prompt:
+  vars_prompt:
     - name: 'webs_selection'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
       1: Apache\n

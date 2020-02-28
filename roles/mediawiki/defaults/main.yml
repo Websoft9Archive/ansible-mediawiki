@@ -5,6 +5,7 @@ mediawiki_vhost_dir: /etc/httpd/vhost
 mediawiki_vhost_src: vhost.conf
 mediawiki_service: httpd
 mediawiki_owner: apache
+mediawiki_db_password: "123456"
 mediawiki_name: "mediawiki"
 mediawiki_title: "MediaWiki"
 #下载链接需定期维护

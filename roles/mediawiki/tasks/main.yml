@@ -8,6 +8,7 @@
     mediawiki_vhost_src: "{{php_runtime_meta[ansible_os_family][mediawiki_webs].vhost_src}}"
     mediawiki_service: "{{php_runtime_meta[ansible_os_family][mediawiki_webs].service}}"
     mediawiki_owner: "{{php_runtime_meta[ansible_os_family][mediawiki_webs].owner}}"
+    mediawiki_db_password: "{{mysql_root_password}}"
 
 - debug:
     msg: runtime {{ mediawiki_vhost_dir }}, {{mediawiki_vhost_src}}, {{mediawiki_service}}, {{mediawiki_owner}}, {{mediawiki_webs}}, {{ansible_distribution}}
@@ -26,14 +27,7 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
 
-- name: Get PHP Version
-  shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
-  register: phpversion
-
-- name: Install php-pecl-apcu
-  yum:
-    name:  php{{phpversion.stdout}}w-pecl-apcu
-    state: latest
+# mediawiki 需安装 php-pecl-apcu 扩展， 已在 PHP role 处理
   
 # 系统通用
 - name: Permission directory
@@ -52,6 +46,9 @@
     
   - name: restart Apache or Nginx
     service: name={{mediawiki_service}} state=restarted enabled=yes
+
+  - name: restart php-fpm
+    service: name=php-fpm state=restarted
 
 
 
