@@ -24,8 +24,12 @@
 
 ## 本项目安装的是 MediaWiki 最新版吗？
 
-本项目是下载 Github 上的[MediaWiki源码](https://github.com/wikimedia/mediawiki)安装，具体版本号可在 [MediaWiki 仓库](https://github.com/wikimedia/mediawiki)的 [tags列表](https://github.com/wikimedia/mediawiki/tags) 查询，根据需求更改[main.yml 文件](/roles/mediawiki/defaults/main.yml) 中的 ```mediawiki_version``` 版本号。
+本项目通过[MediaWiki下载中心](https://releases.wikimedia.org/mediawiki)下载源码安装，最新版本通过下载中心查看，根据需求更改[main.yml 文件](/roles/mediawiki/defaults/main.yml) 中的 ```mediawiki_download_url``` 来安装最新版本。
 
+```
+#下载链接需定期维护
+mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.0.tar.gz"
+```
 我们会定期检查版本准确性，并增加官方最新的stable版本，以保证用户可以顺利安装所需的MediaWiki最新版本。
 
 ## 安装指南
@@ -54,6 +58,3 @@ wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/i
 
 - 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
 - 本项目支持在 Ansible Tower 上运行吗？支持
-
-## To do
-* 添加 Ubuntu18.04 Amazon Linux2 支持
