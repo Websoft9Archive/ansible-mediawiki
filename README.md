@@ -24,13 +24,13 @@
 
 ## 本项目安装的是 MediaWiki 最新版吗？
 
-本项目通过[MediaWiki下载中心](https://releases.wikimedia.org/mediawiki)下载源码安装，最新版本通过下载中心查看，根据需求更改[main.yml 文件](/roles/mediawiki/defaults/main.yml) 中的 ```mediawiki_download_url``` 来安装最新版本。
+本项目通过[MediaWiki下载中心](https://releases.wikimedia.org/mediawiki)下载源码安装，最新版本通过下载中心查看，根据需求更改[/roles/mediawiki/defaults/main.yml](/roles/mediawiki/defaults/main.yml) 文件中的 ```mediawiki_download_url``` 来安装指定版本。
 
 ```
 #下载链接需定期维护
 mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.0.tar.gz"
 ```
-我们会定期检查版本准确性，并增加官方最新的stable版本，以保证用户可以顺利安装所需的MediaWiki最新版本。
+我们会定期检查版本准确性，并增加官方最新的stable版本，以保证用户可以顺利安装所需的 MediaWiki 最新版本。
 
 ## 安装指南
 
