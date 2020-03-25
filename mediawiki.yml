@@ -29,6 +29,7 @@
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
       - MediaWiki
+    preend_certbot: True
   
   pre_tasks:
     - include_vars: roles/role_cloud/vars/cloud_download_url.yml
@@ -45,12 +46,11 @@
     - {role: role_mysql, tags: "role_mysql"}
     - {role: role_php-fpm, tags: "role_php-fpm"}
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
-    - {role: role_lamp, when: mediawiki_webs == 'apache', tags: "role_lamp"}
-    - {role: role_lnmp, when: mediawiki_webs == 'nginx', tags: "role_lnmp"}
+    - {role: role_runtime, tags: "role_runtime"}
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
     - {role: mediawiki, tags: "mediawiki"}
     - {role: role_init_password, tags: "role_init_password"}
-    - {role: role_preend, preend_certbot: True, tags: "role_preend"}
+    - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}
