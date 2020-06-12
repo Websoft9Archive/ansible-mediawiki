@@ -27,7 +27,7 @@
 本项目通过下载 MediaWiki 源码进行安装，下载链接存储在：[/roles/mediawiki/defaults/main.yml](/roles/mediawiki/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
 
 ```
-mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.0.tar.gz"
+mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.1.tar.gz"
 ```
 如果你发现不是最新版本，请查看 [MediaWiki 下载页面 ](https://www.mediawiki.org/wiki/Special:MyLanguage/Download)获取最新版源码下载链接，再修改 [main.yml](/roles/mediawiki/defaults/main.yml) 中的 `mediawiki_download_url` 变量值即可安装最新版本的 MediaWiki。
 
