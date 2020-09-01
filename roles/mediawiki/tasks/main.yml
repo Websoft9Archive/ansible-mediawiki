@@ -40,9 +40,6 @@
 - block:
   - name: change owner&group
     shell: chown -R {{mediawiki_owner}}:{{mediawiki_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    template: src={{mediawiki_vhost_src}} dest={{mediawiki_vhost_dir}}
     
   - name: restart Apache or Nginx
     service: name={{mediawiki_service}} state=restarted enabled=yes
