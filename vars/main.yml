@@ -3,6 +3,8 @@ common_os_support: ["CentOS", "Amazon"]
 
 apache_certbot: True
 nginx_certbot: True
+apache_appname: "mediawiki"
+nginx_appname: "mediawiki"
 
 mysql_remote: True
 mysql_version: "5.7"       
