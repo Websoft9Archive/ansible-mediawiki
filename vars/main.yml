@@ -2,9 +2,12 @@ region: "0"
 common_os_support: ["CentOS", "Amazon"]
 
 apache_certbot: True
-nginx_certbot: True
 apache_appname: "mediawiki"
+apache_vhost_mode: "www"
+
+nginx_certbot: True
 nginx_appname: "mediawiki"
+nginx_vhost_mode: "www"
 
 mysql_remote: True
 mysql_version: "5.7"       
@@ -20,7 +23,6 @@ mysql_databases:
  
 mysql_users:
  - name: mediawiki
-   host: localhost
    priv: 'mediawiki.*:ALL'
 
 # init all users password for MySQL
