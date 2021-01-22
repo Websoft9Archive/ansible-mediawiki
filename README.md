@@ -11,10 +11,12 @@
 
 | 条件       | 详情       | 备注  |
 | ------------ | ------------ | ----- |
-| 操作系统       | CentOS7.x       |    |
+| 操作系统       | CentOS7.x, Ubuntu18.x, AmazonLinux2       |    |
 | 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
 | 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
 | 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
+
+更多配置要求请参考官方文档：[Installation_requirements](https://www.mediawiki.org/wiki/Manual:Installation_requirements)
 
 ## 组件
 
@@ -27,7 +29,7 @@
 本项目通过下载 MediaWiki 源码进行安装，下载链接存储在：[/roles/mediawiki/defaults/main.yml](/roles/mediawiki/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
 
 ```
-mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.1.tar.gz"
+mediawiki_download_url: "https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.1.tar.gz"
 ```
 如果你发现不是最新版本，请查看 [MediaWiki 下载页面 ](https://www.mediawiki.org/wiki/Special:MyLanguage/Download)获取最新版源码下载链接，再修改 [main.yml](/roles/mediawiki/defaults/main.yml) 中的 `mediawiki_download_url` 变量值即可安装最新版本的 MediaWiki。
 
