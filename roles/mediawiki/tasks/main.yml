@@ -28,19 +28,10 @@
   shell: cd /data/wwwroot; if [ ! -d "{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
 
 # mediawiki 需安装 php-pecl-apcu 扩展， 已在 PHP role 处理
-  
-# 系统通用
-- name: Permission directory
-  shell: |
-    find /data/wwwroot -type d -exec chmod 750 {} \;
-    find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
 # 根据不同的基础环境分别处理
 
 - block:
-  - name: change owner&group
-    shell: chown -R {{mediawiki_owner}}:{{mediawiki_owner}} /data/wwwroot
-    
   - name: restart Apache or Nginx
     service: name={{mediawiki_service}} state=restarted enabled=yes
 
