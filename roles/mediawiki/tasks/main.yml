@@ -23,6 +23,7 @@
     src: "{{mediawiki_download_url}}"
     dest: /data/wwwroot
     remote_src: yes
+    validate_certs: no
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{mediawiki_name}}" ]; then mv *{{mediawiki_name}}* {{mediawiki_name}}; fi
